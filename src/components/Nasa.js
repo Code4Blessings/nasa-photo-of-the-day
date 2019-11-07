@@ -5,10 +5,11 @@ import NasaCard from "./NasaCard";
 
 const Nasa = () => {
     const [nasaData, setNasaData] = useState({});
+    const ApiKey = "https://api.nasa.gov/planetary/apod?api_key=myZKi01y3UKMuU88uLe090NyYe1XuQVJfQBhx7Bt"
 
     useEffect(() => {
         axios
-        .get("https://api.nasa.gov/planetary/apod?api_key=myZKi01y3UKMuU88uLe090NyYe1XuQVJfQBhx7Bt")
+        .get(ApiKey)
         .then((response) => {
             setNasaData(response.data);
             console.log(response.data);
@@ -18,15 +19,14 @@ const Nasa = () => {
         })
     },[])
     
-
    return (
       <div className="nasa-object">
         <NasaCard
-            date={nasaData.date}
+            image={nasaData.hdurl}
             title={nasaData.title}
+            date={nasaData.date}
             explanation={nasaData.explanation}
           />
-
       </div>
 
   );

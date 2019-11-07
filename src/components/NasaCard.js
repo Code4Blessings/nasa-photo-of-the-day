@@ -1,9 +1,10 @@
 import React from "react";
 
 const NasaCard = (props) => {
-    const { date, title, explanation} = props;
+    const { image, date, title, explanation} = props;
     return (
         <div className="nasa-card">
+            <img className="img-cover" src={image} alt="stars"/>
             <h2>Title: {title}</h2>
             <p>Date: {date}</p>
             <p>Explanation: {explanation}</p>
